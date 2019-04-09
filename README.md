@@ -50,79 +50,95 @@ This application works, but not very well.
 1. Also, you will want to make sure you have the **Windows 10 SDK**. It should come with the latest version of Visual Studio if your windows machine is updated fully. But go ahead and download and install from the link below:
     1. [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
     1. Click **Download Installer**
-![Download Installer](/images/sdk%20install.png)
+![Download Installer](/images/sdk install.png)
     1. Start the installer that you just downloaded
+    1. Make sure you check the box **.NET Framework 4.7.2 Software Development Kit**
+![.NET Framework 4.7.2 Software Development Kit](/images/check boxes.png)
+    1. Click **Download**
+    1. You may have to start the installer by finding the executable file if a window pops up telling you to do so. There’s a bug that sometimes tells you to re-download and start the installer again by finding the executable file. Go ahead and run the executable, and if you already have the SDK installed, it will tell you.
+![Download complete](/images/sdk exe.png)
+    1. To verify you have the SDK installed, check your Programs and Features (where you go to uninstall programs not used) and scroll to the bottom. It should be there labeled as Windows Software Development Kit - Windows 10.*.
+![Verify complete](/images/verify sdk.png)
+1. **Done**
 
 
-* Select the Build tab
-* Change the platform target to x86 and then save the properties (CTRL + S)
+# Unity
+1. Install **Unity** v. 2018.3.2
+    1. [Download Unity](https://unity3d.com/get-unity/download/archive)
+        1. This is an earlier version that still allows the use of the .NET 4 Framework and isn’t deprecated
+    1. **Download (Win)** -> **Unity Installer**
+    1. Run the executable you just downloaded
+    1. As you’re installing Unity, make sure to have the following components selected as you’re installing (Depending on the version the names may be different):
+        1. UWP Build Support (.NET) *or* Windows Store .NET Scripting Backend 
+        1. UWP Build Support (IL2CPP) *or* Windows Store IL2CPP Scripting Backend
+        1. Windows Build Support (IL2CPP)
+![Unity Build](/images/unity build checkbox.png)
+    1. Click *Install*
+    1. Leave defaults. Click *Next*
+    1. Accept Terms. Click *Next*
+    1. Wait for Install to finish!
+1. After having everything set up, you should just be able to open Unity, create an account, and open the project folder.
+    1. Navigate to the parent folder: **HoloRekognition**
+    1. Select the project folder of the application to open: **Single_Photo_HoloRekog**
+1. To rebuild the application in Unity:
+    1. Go up to the top menu: **File** -> **Build Settings…**
+    1. We now have to set up the build settings to work with Visual Studio and Universal Windows Platform. In the new window Build Settings Window that popped up:
+        1. Under Platform, select **Universal Windows Platform**
+        1. Click the button: **Switch Platform**
+        1. Verify the Target Device is set to **HoloLens**
+        1. Verify that under **Debugging**, that **Unity C# Projects** is checked
+        1. Click the button: **Player Settings…**
+![Player Settings](/images/build-settings.png)
+        1. When the Inspector pops up for PlayerSettings, look under **Other Settings** -> **Configuration**
+            1. Verify **Scripting Runtime Version** is set to **.Net 4.x Equivalent**
+            1. Verify **Scripting Backend** is set to **.Net**
+            1. Verify **Api Compatibility level** is set to **.Net 4.x**
+![Configuration Settings](/images/configuration-settings.png)
+        1. In the Inspector, look under **XR Settings**
+            1. Verify **Virtual Reality Supported** is checked
+![XR Settings](/images/xr-settings.png)
+    1. In the Build Settings window that popped up previously, click: **Build**
+    1. This will open a folder selection window at the parent folder that you used to open the project in Unity
+        1. If there isn’t an **App** folder, create one.
+        1. Select the **App** folder (highlight it, don’t go into it)
+        1. Click **Select Folder**
+        1. Wait for the build to finish
+1. **Done**. You can then navigate to the App folder and open the .sln file using Visual Studio.
 
-![Build](PersonMaker/PersonMaker/github/images/build.png?raw=true "Properties")
 
-* Build the project
-* Select Local Machine as the debug target
-* Start debugging
+# HoloToolkit (a.k.a. Mixed Reality Toolkit (MRTK))
 
-![Form](PersonMaker/PersonMaker/github/images/startup.png?raw=true "Form")
+*NOTE: With this project, MRTK shouldn’t be needed as the project already includes the HoloToolKit library. If for some reason it is needed, these instructions are provided.*
+*Additional reference: [Getting Started with the MRTK](https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/mrtk_release/Documentation/GettingStartedWithTheMRTK.md )*
+1. Download the **package** that you will need to import into Unity
+    1. [Download version HoloToolkit 2017.4.2.0](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases)
+1. Import HoloToolkit into Unity
+    1. Open the project in **Unity** you want the plugin to be a part of
+    1. On the menu bar: **Assets** -> **Import Package** -> **Custom Package**
+    1. Select the HoloToolKit package from where you downloaded/unpacked it
+    1. In the window that pops up, **select all** the folders/content
+    1. Click **Import**
+    1. Click **Apply**
+1. You will have to rebuild the project in Unity for the plugin to be added
 
-# Create
-## Person Group
-A Person Group is the Face resource object that contains Persons. You must create/fetch a Person Group before working with Persons
 
-* Enter the Face Resource Key in Step 1
-* Enter a text id for the Person Group ID in step 2
-  * This must be lowercase and a single word without spaces
-* Enter a friendly text name for the Person Group Name in step 2
-* Click Create Person Group to create the group
+# Setting Up the Project
+*NOTE: This part assumes you have set up the Cognitive Service for the **Face API**, have an **API key** to the service, and have a **person group ID** that was created in the service.*
 
-![Person Group](PersonMaker/PersonMaker/github/images/persongroup.png?raw=true "Person Group")
+To open the project in Visual Studio, go to the projects parent folder that that contains the App, Assets, Library,... folders. Go into the App folder and select the .sln (solution) file inside. If there is no **App** folder, then the project needs to be opened in Unity, **App** folder created, and project built in the **App** folder.
 
-## Person
-The Person object contains the Name, User Data, and Facial Recognition model for a person
+When the solution loads, open **FaceAnalysis.cs** and scroll down to the constants that are being initialized. The API authentication key will go in the **key** string constant. The person group ID will go in the **personGroupId** string constant.
 
-* Enter the First and Last name of the Person in Step 3
-* Click Create Person to create the Person object in the Person Group
+Now go up to the top menu: **Build** -> **Build Solution**
 
-![Person Name](PersonMaker/PersonMaker/github/images/username.png?raw=true "Person Name")
 
-## User Data
-User Data is optional but can be added as one or more key/value (label/value) pair. Create a list of these data pairs before submitting to Azure to be associated with the Person.
+# Setting Up the Project
+When deploying to the Hololens via Visual studio and USB cord, make sure to click the dropdown arrow for the green 'play' triangle button and select **Device**. Additionally, the field to the left should read "**x86**", not "x64" or "ARM." With the Hololens on, click the green 'play' button and the project will be built, deployed, and started on the Hololens.
+![Visual Studio Build](/images/visual-studio-build-button.png)
 
-* Add a Label in the first text box of Step 4
-* Add a Value associated with the Label in the second text box of Step 4
-* Click Add To List to add that pair to the User Data list
-* Repeat this until you have all the data that you would like to be associated with the Person
-* Click Submit User Data to save the User Data list you created
-
-![Person Data](PersonMaker/PersonMaker/github/images/userdata.png?raw=true "Person Data")
-
-## Person Images
-Training the recognition model requires at least 10 good quality photos of the person. These photos must be isolated to contain only the person’s face
-
-* Collect, or take, 10 photos of a person’s face.
-
-## Create/Open Photo Folder
-For ease of use, the Custom Person Maker creates a folder for the Person in the Pictures directory.
-
-* Click Create/Open Folder button
-* Put the photos collected in step 5 in the folder created
-
-## Submit To Azure
-This step should be completed after the photos have been put in the created folder in step 6.
-
-* Click Submit To Azure
-* Wait for the status to say completed
-
-## Train
-Facial recognition requires training a model based on a minimum of 10 photos. Complete this step after the photos have been submitted to Azure
-
-* Click Train Model button
-
-# Fetch
-Each Person Group or Person must be fetched before working with them after creation. For example, in order to add additional User Data on John Smith you will need to fetch the Person Group using the Person Group ID, and fetch the Person by entering John Smith in the text box and clicking the Fetch Person button. You will then see the User Data associated with John Smith and can then add additional User Data to the list and re-submit.
-
-# Delete
-To delete a Person Group or Person, first, fetch the resource and then click on the delete button. That resource (Person Group or Person) will be removed permanently with all of the associated data.
+After the project has been deployed once onto the hololens from Visual Studio, the app will be selectable under **All Apps** on the Hololens Home screen and the application will be labeled as **SinglePhoto_HoloRekognition**.
 
 # Summary
-If you need to interface with the data in the Face resource, this application will allow you to create, train, fetch, update, and delete all items in the resource. 
+You should now have your development environment set up. You will be able to run the HoloLens facial recognition applications.
+
+
