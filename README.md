@@ -50,15 +50,15 @@ This application works, but not very well.
 1. Also, you will want to make sure you have the **Windows 10 SDK**. It should come with the latest version of Visual Studio if your windows machine is updated fully. But go ahead and download and install from the link below:
     1. [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
     1. Click **Download Installer**
-![Download Installer](/images/sdk install.png)
+![Download Installer](/images/sdk%20install.png)
     1. Start the installer that you just downloaded
     1. Make sure you check the box **.NET Framework 4.7.2 Software Development Kit**
-![.NET Framework 4.7.2 Software Development Kit](/images/check boxes.png)
+![.NET Framework 4.7.2 Software Development Kit](/images/check%20boxes.png)
     1. Click **Download**
     1. You may have to start the installer by finding the executable file if a window pops up telling you to do so. There’s a bug that sometimes tells you to re-download and start the installer again by finding the executable file. Go ahead and run the executable, and if you already have the SDK installed, it will tell you.
-![Download complete](/images/sdk exe.png)
+![Download complete](/images/sdk%20exe.png)
     1. To verify you have the SDK installed, check your Programs and Features (where you go to uninstall programs not used) and scroll to the bottom. It should be there labeled as Windows Software Development Kit - Windows 10.*.
-![Verify complete](/images/verify sdk.png)
+![Verify complete](/images/verify%20sdk.png)
 1. **Done**
 
 
@@ -72,7 +72,7 @@ This application works, but not very well.
         1. UWP Build Support (.NET) *or* Windows Store .NET Scripting Backend 
         1. UWP Build Support (IL2CPP) *or* Windows Store IL2CPP Scripting Backend
         1. Windows Build Support (IL2CPP)
-![Unity Build](/images/unity build checkbox.png)
+![Unity Build](/images/unity%20build%20checkbox.png)
     1. Click *Install*
     1. Leave defaults. Click *Next*
     1. Accept Terms. Click *Next*
