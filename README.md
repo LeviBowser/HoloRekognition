@@ -51,7 +51,7 @@ This application works, but not very well.
     1. [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
     1. Click **Download Installer**
 
-![Download Installer](/images/sdk%20install.png?raw=true "Download Installer")
+![Download Installer](/images/sdk%20install.png "Download Installer")
 
     1. Start the installer that you just downloaded
     1. Make sure you check the box **.NET Framework 4.7.2 Software Development Kit**
