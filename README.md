@@ -50,15 +50,23 @@ This application works, but not very well.
 1. Also, you will want to make sure you have the **Windows 10 SDK**. It should come with the latest version of Visual Studio if your windows machine is updated fully. But go ahead and download and install from the link below:
     1. [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
     1. Click **Download Installer**
-![Download Installer](/images/sdk install.png)
+
+    ![Download Installer](/images/sdk%20install.png?raw=true)
+
     1. Start the installer that you just downloaded
     1. Make sure you check the box **.NET Framework 4.7.2 Software Development Kit**
-![.NET Framework 4.7.2 Software Development Kit](/images/check boxes.png)
+
+    ![.NET Framework 4.7.2 Software Development Kit](/images/check%20boxes.png?raw=true)
+
     1. Click **Download**
     1. You may have to start the installer by finding the executable file if a window pops up telling you to do so. There’s a bug that sometimes tells you to re-download and start the installer again by finding the executable file. Go ahead and run the executable, and if you already have the SDK installed, it will tell you.
-![Download complete](/images/sdk exe.png)
+
+    ![Download complete](/images/sdk%20exe.png?raw=true)
+
     1. To verify you have the SDK installed, check your Programs and Features (where you go to uninstall programs not used) and scroll to the bottom. It should be there labeled as Windows Software Development Kit - Windows 10.*.
-![Verify complete](/images/verify sdk.png)
+
+    ![Verify complete](/images/verify%20sdk.png?raw=true)
+
 1. **Done**
 
 
@@ -72,11 +80,14 @@ This application works, but not very well.
         1. UWP Build Support (.NET) *or* Windows Store .NET Scripting Backend 
         1. UWP Build Support (IL2CPP) *or* Windows Store IL2CPP Scripting Backend
         1. Windows Build Support (IL2CPP)
-![Unity Build](/images/unity build checkbox.png)
+
+        ![Unity Build](/images/unity%20build%20checkbox.png?raw=true)
+
     1. Click *Install*
     1. Leave defaults. Click *Next*
     1. Accept Terms. Click *Next*
     1. Wait for Install to finish!
+
 1. After having everything set up, you should just be able to open Unity, create an account, and open the project folder.
     1. Navigate to the parent folder: **HoloRekognition**
     1. Select the project folder of the application to open: **Single_Photo_HoloRekog**
@@ -88,15 +99,21 @@ This application works, but not very well.
         1. Verify the Target Device is set to **HoloLens**
         1. Verify that under **Debugging**, that **Unity C# Projects** is checked
         1. Click the button: **Player Settings…**
-![Player Settings](/images/build-settings.png)
+
+        ![Player Settings](/images/build-settings.png?raw=true)
+
         1. When the Inspector pops up for PlayerSettings, look under **Other Settings** -> **Configuration**
             1. Verify **Scripting Runtime Version** is set to **.Net 4.x Equivalent**
             1. Verify **Scripting Backend** is set to **.Net**
             1. Verify **Api Compatibility level** is set to **.Net 4.x**
-![Configuration Settings](/images/configuration-settings.png)
+
+            ![Configuration Settings](/images/configuration-settings.png?raw=true)
+
         1. In the Inspector, look under **XR Settings**
             1. Verify **Virtual Reality Supported** is checked
-![XR Settings](/images/xr-settings.png)
+
+            ![XR Settings](/images/xr-settings.png?raw=true)
+
     1. In the Build Settings window that popped up previously, click: **Build**
     1. This will open a folder selection window at the parent folder that you used to open the project in Unity
         1. If there isn’t an **App** folder, create one.
@@ -134,11 +151,10 @@ Now go up to the top menu: **Build** -> **Build Solution**
 
 # Setting Up the Project
 When deploying to the Hololens via Visual studio and USB cord, make sure to click the dropdown arrow for the green 'play' triangle button and select **Device**. Additionally, the field to the left should read "**x86**", not "x64" or "ARM." With the Hololens on, click the green 'play' button and the project will be built, deployed, and started on the Hololens.
-![Visual Studio Build](/images/visual-studio-build-button.png)
+
+![Visual Studio Build](/images/visual-studio-build-button.png?raw=true)
 
 After the project has been deployed once onto the hololens from Visual Studio, the app will be selectable under **All Apps** on the Hololens Home screen and the application will be labeled as **SinglePhoto_HoloRekognition**.
 
 # Summary
 You should now have your development environment set up. You will be able to run the HoloLens facial recognition applications.
-
-
