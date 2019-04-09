@@ -50,7 +50,7 @@ This application works, but not very well.
 1. Also, you will want to make sure you have the **Windows 10 SDK**. It should come with the latest version of Visual Studio if your windows machine is updated fully. But go ahead and download and install from the link below:
     1. [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
     1. Click **Download Installer**
-    ![Download Installer](PersonMaker/PersonMaker/github/images/properties.png)
+    ![Download Installer](HoloRekognition/blob/master/images/sdk install.png)
 
 * Select the Build tab
 * Change the platform target to x86 and then save the properties (CTRL + S)
