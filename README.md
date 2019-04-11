@@ -13,9 +13,16 @@ Additional backend utilities were created through this capstone to interact with
 There are two applications for the project that can be used **Single_Photo_HoloRekog** and **Face_Tracking_HoloRekog**.
 
 ## Single_Photo_HoloRekog
-An application that uses the tap gesture to take a photo and then locate/identify and recognize faces in the photo using Microsoft's Azure Face API. After a face is located, a 3D face rectangle is placed around the individuals face. If the face is recognized, any information that was connected to the face is displayed around the face rectangle. Please keep in mind that each photo taken places **TWO** api calls to the Face API. One for location/identification and another for face recognition.
+An application that uses the tap gesture to take a photo and then locate/identify and recognize faces in the photo using Microsoft's Azure Face API. After a face is located, a 3D face rectangle is placed around the individuals face. If the face is recognized, any information that was connected to the face is displayed around the face rectangle. Please keep in mind that each photo taken places TWO api calls to the Face API. One for location/identification and another for face recognition.
 
-Distance was estimated using approximations of face rectangle size; i.e. the smaller the face, the larger the estimated distance will be.
+The first Face API call is sent to Azure where the service locates the pixel location of the face, the pixel-width and pixel-height of the bounding-rectangle that fits the face, and returns the top-left pixel location of the face rectangle along with the height and width of the face rectangle. Additionally, the API call returns a hashed value called a faceID. This faceID is a value computed by Azure that contains unique identification information about the face that was located.
+
+The faceID is then sent to the Face API where Azure compares the faceID to previously trained models of faces and their respective personIDs. PersonIDs are similarly constructed faceIDs that are associated with a person and person group; the association with a person is what defines a personID over a computed faceID.. Azure then returns the personID and the confidence level of the match. In addition, Azure also returns all the data associated with that person that is saved; e.g. name, major, etc. 
+
+Distance was estimated using approximations of face rectangle size; i.e. the smaller the face, the larger the estimated distance will be because the face is assumed to be farther away.
+
+With returned person information, along with the approximations of distance and face rectangle positions, the face rectangle is created in 3D space using Unity and displays both the face rectangle with the person information next to it to the user.
+
 
 Face management and resource creation was done using the [CustomPersonMaker](https://github.com/nbarton915/CustomPersonMaker) and [Person Group Python](https://github.com/CameronSpilker/DownloadPersonGroupInformation) utilities.
 
